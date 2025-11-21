@@ -1,16 +1,35 @@
-# React + Vite
+# Input–Output Scroll Mapping (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements an **interactive input–output viewer** in React, where:
 
-Currently, two official plugins are available:
+- The **left panel** shows the full input text (e.g., a clinical note / case history).
+- The **right panel** shows a list of **phrases** extracted from that text.
+- Clicking on a **clickable phrase** on the right **automatically scrolls** the left panel to the corresponding phrase.
+- Some phrases can be **non-clickable** (still highlighted but don’t trigger scroll).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This was built as a solution to an assignment on mapping **highlighted phrases** in an output view back to their **exact location** in the input text.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Two-column layout: **Input** (left) and **Output** (right)
+- Scrollable containers with smooth scrolling
+- **Automatic mapping** of phrases from output to input using string matching
+- **Clickable highlights** (scroll to text on left)
+- **Non-clickable highlights** (visually distinct but no scroll)
+- Simple, clean UI built with plain React + CSS (no UI library)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 Core Idea / Algorithm
+
+1. **Input text** (full paragraph/notes) is stored as a single string.
+2. **Highlights** are stored as a list of objects, for example:
+
+   ```js
+   {
+     id: "h1",
+     text: "sharp and worsening abdominal pain",
+     clickable: true
+   }
