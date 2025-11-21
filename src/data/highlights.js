@@ -2,7 +2,7 @@ export const highlights = [
     {
     id: "h11",
     text: "History of present illness",
-    clickable: true
+    clickable: false
   },
     {
     id: "h12",
