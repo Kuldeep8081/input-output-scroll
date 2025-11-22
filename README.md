@@ -1,5 +1,5 @@
 # Input–Output Scroll Mapping (React)
-
+Deployment link: https://input-output-scroll.vercel.app/
 This project implements an **interactive input–output viewer** in React, where:
 
 - The **left panel** shows the full input text (e.g., a clinical note / case history).
