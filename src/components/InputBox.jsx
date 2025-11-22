@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function buildSegments(text, highlights) {
   const segments = [];
   let currentIndex = 0;
@@ -52,11 +51,7 @@ const InputBox = ({ text, highlights }) => {
           seg.type === "normal" ? (
             <span key={idx}>{seg.text}</span>
           ) : (
-            <span
-              key={idx}
-              id={`input-${seg.id}`}
-              className="input-highlight"
-            >
+            <span key={idx} id={`input-${seg.id}`} className="input-highlight">
               {seg.text}
             </span>
           )
